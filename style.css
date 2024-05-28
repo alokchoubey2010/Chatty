@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'poppins';
+}
+
+@font-face {
+  font-family: 'poppins';
+  src: url('Poppins-Regular.ttf');
+}
+
+body {
+  background: #0a0a0a;
+  color: white;
+}
+
+.msgBox{
+  position: fixed;
+  background: transparent;
+  bottom: 20px;
+}
+
+.msgBox input{
+  padding: 15px;
+  outline: none;
+  color: white;
+  border: 2px dashed aquamarine;
+  border-radius: 10px;
+  margin-left: 8.6px;
+  background: transparent;
+  box-shadow: 0 0 20px aquamarine;
+  width: 73%;
+}
+
+::placeholder{
+  color: aquamarine;
+}
+
+button{
+  padding: 15px;
+  border: 2px solid aquamarine;
+  background: aquamarine;
+  color: black;
+  border-radius: 20px;
+  box-shadow: 0 0 20px aquamarine;
+  width: 22%;
+}
+
+.sendDiv{
+  padding: 15px;
+  width: fit-content;
+  box-shadow: inset -2px 3px 10px aquamarine;
+  border-radius: 10px;
+  color: white;
+  margin-top: 20px;
+  margin-left: 20px;
+  max-width: 70%;
+}
+
+.chatExhange{
+  width: 100%;
+}
+
+.nav{
+  padding: 5px;
+  color: white;
+  /* box-shadow: -2px 3px 10px aquamarine; */
+  border-bottom: 2px dashed aquamarine;
+  position: fixed;
+  top: -100px;
+}
+
+.nav p{
+  font-size: 23px;
+  margin-left: 20px;
+}
+
+.nav span{
+  margin-left: 20px;
+}
