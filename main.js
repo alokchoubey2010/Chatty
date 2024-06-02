@@ -1,78 +1,40 @@
-const firebaseConfig = {
-  apiKey: "AIzaSyAEY_Ca9XUM3T1fVQE5JOs6WcKdwUFcvmk",
-  authDomain: "chatty-a9407.firebaseapp.com",
-  databaseURL: "https://chatty-a9407-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "chatty-a9407",
-  storageBucket: "chatty-a9407.appspot.com",
-  messagingSenderId: "159299880319",
-  appId: "1:159299880319:web:e4b9c1f017c43189f5864a"
-};
-
-firebase.initializeApp(firebaseConfig);
-
-
-function sendMsg(msgValue){
-  div = document.createElement("div");
-  div.innerHTML = msgValue;
-  div.className = "sendDiv";
-  document.body.appendChild(div);
-}
-function send() {
-  const msg = document.getElementById("msg");
-  if (msg.value === 0) {
-    prompt("Nothing to say, send a greeting?");
-  } else {
-    const username = localStorage.getItem("username");
-    sendMsg(username + ": " + msg.value);
-    addMessageToFirebase(msg.value);
-    msg.value = '';
-  }
+function activateSignup(){
+  topBg = document.querySelector(".topBg");
+  createBtn = document.querySelector(".create");
+  loginForm = document.querySelector(".formBoxlogin");
+  signupForm = document.querySelector(".formBoxsignup");
+  loginForm.classList.add("expand");
+  setTimeout(function(){
+    loginForm.innerHTML = "";
+    loginForm.style.padding = "0";
+    loginForm.style.borderRadius = "50px";
+    createBtn.classList.add("remove");
+    signupForm.style.marginTop = '33px';
+    setTimeout(function(){
+      createBtn.style.display = 'none';
+    },700);
+    loginForm.innerHTML = "<Button class='continue' onclick='activateLogin()'>Login To Account</Button>"
+  },1000);
+  topBg.style.height = '100px';
 }
 
-function addMessageToFirebase(message) {
-  const username = localStorage.getItem("username");
-  const database = firebase.database();
-  const category = 'Chatty';
-  const categoryRef = database.ref('messages/' + category);
-  const newMessageRef = categoryRef.push();
-  newMessageRef.set({
-    text: message,
-    sender: username,
-    timestamp: Date.now()
-  });
+
+function activateLogin(){
+  topBg = document.querySelector(".topBg");
+  createBtn = document.querySelector(".create");
+  loginForm = document.querySelector(".formBoxlogin");
+  signupForm = document.querySelector(".formBoxsignup");
+  loginForm.classList.remove("expand");
+  setTimeout(function(){
+    loginForm.innerHTML = "";
+    loginForm.style.padding = "20px";
+    loginForm.style.borderRadius = "15px";
+    createBtn.classList.remove("remove");
+    signupForm.style.marginTop = '700px';
+    setTimeout(function(){
+      createBtn.style.display = 'block';
+    },700);
+    loginForm.innerHTML ="<h2>Chatty - Login</h2><input type='email' placeholder='Email'id='email'><input type='password' placeholder='Password'id='password'><label for='password'><a class='forgotPassword'href='#'>Forgot Password?</a></label><br><input type='checkbox' name='loggedIn' id='loggedIn' /><label for='loggedIn'><span>Remember Me</span></label><br><button class='login' onclick='login()'>Let me In</button><span>Not a User ? <a href='#' onclick='activateSignup()'>Become One</a></span>";
+  },100);
+  topBg.style.height = '75vh';
 }
-
-// Reference to your Firebase database
-const database = firebase.database();
-// Reference to the messages category in your database
-const categoryRef = database.ref('messages/Chatty');
-// Function to display messages
-function displayMessages() {
-  categoryRef.on('value', function(snapshot) {
-    // Iterate through each message in the snapshot
-    snapshot.forEach(function(childSnapshot) {
-      // Get the message data
-      const messageData = childSnapshot.val();
-
-      // Create a div element to display the message
-      const messageDiv = document.createElement("div");
-      messageDiv.innerText = messageData.sender + ": " + messageData.text;
-
-      // Create a delete button
-      const deleteButton = document.createElement("button");
-      deleteButton.innerText = "Delete";
-      deleteButton.addEventListener("click", function() {
-        // Get the message key and remove it from the database
-        const messageKey = childSnapshot.key;
-        categoryRef.child(messageKey).remove();
-      });
-
-      // Append the message and delete button to the messages container
-      messageDiv.appendChild(deleteButton);
-      document.body.appendChild(messageDiv);
-    });
-  });
-}
-
-// Call the displayMessages function to initially display any existing messages
-displayMessages();

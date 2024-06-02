@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Just a Moment...</title>
+</head>
+<link rel="stylesheet" href="instructions.css">
+<body>
+  
+<div class="container">
+  <h2>Hello <span id='uName'></span></h2>
+  <p>Just answer some quick questions to customize your user experience with us.</p>
+  <button class='cont'>Continue</button>
+  <button class='skip'>Skip for Now</button>
+</div>
+
+  <div class="questions">
+    <h2 id="questionNo"><Span class='qno'></Span>Question</h2>
+    <p id='questionpara'></p>
+    <button class="go"></button>
+    <button class="no"></button>
+  </div>
+</body>
+
+
+<script>
+  if(localStorage.getItem("username")){
+    username = localStorage.getItem("username");
+    console.log("Name found: " + username);
+  }else{
+    username = "What should we call you ?";
+    localStorage.getItem("username", username);
+  }
+  uName = document.getElementById("uName");
+  uName.innerHTML = username + ",";
+  
+  // adding code for button click handling
+  cont = document.querySelector(".cont");
+  skip = document.querySelector(".skip");
+  cont.onclick = function(){
+    container = document.querySelector(".container");
+    questions = document.querySelector(".questions");
+    questionpara = document.getElementById("questionpara");
+    go = document.querySelector(".go")
+    no = document.querySelector(".no")
+    container.style.display = 'none';
+    questions.style.display = 'block';
+    n = 1;
+    if(n === 1){
+      questionpara.innerHTML = 'What theme would you like to use ?'
+      go.innerHTML = "Dark";
+      no.innerHTML = "Light";
+      go.onclick = function(){
+        dark = 'dark';
+        localStorage.setItem("mode", dark);
+        n = n + 1;
+        questionpara.innerHTML = "Would you like to recieve notification about you chats ?"
+        go.innerHTML = "Yes";
+        no.innerHTML = "No";
+        go.onclick = function(){
+          yes = 'yes';
+          localStorage.setItem("notification", yes)
+        }
+        no.onclick = function(){
+          no = 'no';
+          localStorage.setItem("notification", no)
+        }
+      }
+      no.onclick = function(){
+        light = 'light';
+        localStorage.setItem("mode", light);
+        n = n + 1;questionpara.innerHTML = "Would you like to recieve notification about you chats ?"
+        go.innerHTML = "Yes";
+        no.innerHTML = "No";
+        go.onclick = function() {
+          yes = 'yes';
+          localStorage.setItem("notification", yes)
+          window.location.href = 'home/home.html';
+        }
+        no.onclick = function() {
+          no = 'no';
+          localStorage.setItem("notification", no)
+        }
+      }
+    }else{
+      questionpara.innerHTML = "Would you like to recieve notification about you chats ?"
+      go.innerHTML = "Yes";
+      no.innerHTML = "No";
+    }
+    
+    
+    if(localStorage.getItem("customized")){
+      localStorage.removeItem("customized");
+    }
+    yes = 'yes';
+    localStorage.setItem("customized", yes);
+  }
+  skip.onclick = function(){
+    confirm("We are skipping this for now, but you can always find it in the settings.")
+    no = 'no';
+    localStorage.setItem("customized", no);
+  }
+  
+</script>
+</html>
