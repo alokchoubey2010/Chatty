@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+<link rel="stylesheet" href="home.css">
+<body>
+  
+  <div class="topnav">
+    <label class="logo">Chatty</label>
+    <div class="icons">
+      <img src="close-outline.svg" width="38px" id='close'>
+      <img src="search-outline.svg" width="30px" id='search'>
+      <img src="settings-outline.svg" width="29px">
+    </div>
+  </div>
+  
+  <div class="contactsPage">
+    
+  </div>
+  
+  <div class="chatInterface">
+    <div class="topChatNav">
+      <div class="img"></div>
+      <p class="nameChat"></p>
+      <p class="stateChat"></p>
+      <div class="icons">
+        <img src="settings-outline.svg" width="26px">
+        <img src="close-outline.svg" width="34px" onclick="revertChat()">
+      </div>
+    </div>
+    <div class="sendBox">
+      <input type="text" id='msg' placeholder='Message...'>
+      <button id='send' onclick='animateSend()'>Send</button>
+    </div>
+  </div>
+  <div class="msgBox">
+  </div>
+  
+  <input type="text" class="search" placeholder="Search Contacts">
+  
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+<script src="home.js"></script>
+<script src="sendMessageFirebase.js"></script>
+</html>

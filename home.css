@@ -1,0 +1,224 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: poppins;
+}
+
+@font-face{
+  src: url("Poppins-Regular.ttf");
+  font-family: poppins;
+}
+
+body{
+  background: url("WhLiyU.png") repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  color: white;
+}
+
+.topnav{
+  padding: 15px;
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid;
+}
+
+.logo{
+  font-family: monospace;
+  font-size: 25px;
+  font-weight: bold;
+  background: linear-gradient(45deg,#36FFFC,#FFDA6D);
+  -webkit-background-clip: text;
+  text-shadow: 0 0 20px #36FFFC,
+              2px 2px 20px #FFDA6D;
+  -webkit-text-fill-color: transparent;
+  margin-left: 15px;
+  margin-top: 3px;
+}
+
+.icons{
+  margin-top: 3px;
+  display: flex;
+  gap: 25px;
+}
+
+input.search{
+  position: fixed;
+  top: 58px;
+  right: 40px;
+  height: 50px;
+  border-radius: 10px;
+  display: none;
+}
+
+::placeholder{
+  color: white;
+}
+
+#close{
+  display: none;
+}
+
+.contact{
+  padding: 6px;
+  display: flex;
+  border: 1.5px solid white;
+  width: 98%;
+  margin-left: 1%;
+  margin-top: 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(3px);
+}
+
+div.img{
+  width: 55px;
+  height: 55px;
+  border: 1.5px solid white;
+  border-radius: 50%;
+}
+
+.name{
+  padding: 4px;
+  font-size: 20px;
+  margin-left: 15px;
+  font-weight: bold;
+  background: linear-gradient(45deg,#36FFFC,#FFDA6D);
+  -webkit-background-clip: text;
+  text-shadow: 0 0 20px #36FFFC,
+              2px 2px 20px #FFDA6D;
+  -webkit-text-fill-color: transparent;
+}
+
+.nameChat{
+  padding: 4px;
+  font-size: 20px;
+  margin-left: 15px;
+  font-weight: bold;
+  background: linear-gradient(45deg,#36FFFC,#FFDA6D);
+  -webkit-background-clip: text;
+  text-shadow: 0 0 20px #36FFFC,
+              2px 2px 20px #FFDA6D;
+  -webkit-text-fill-color: transparent;
+}
+
+.state{
+  position: fixed;
+  right: 10px;
+  padding: 15px;
+}
+
+.email{
+  position: absolute;
+  top: 37.8px;
+  left: 80px;
+  font-size: 13px;
+}
+
+.add{
+  padding: 10px;
+  border: 1.5px solid white;
+  border-radius: 10px;
+  background: #fff;
+  color: black;
+  box-shadow: 0 0 20px white;
+  font-size: 1em;
+  position: absolute;
+  top: 47%;
+  left: 15%;
+  width: 70%;
+}
+
+.contactsPage{
+  
+}
+
+.topChatNav{
+  padding: 6px;
+  display: flex;
+  border: 1.5px solid white;
+  width: 98%;
+  margin-left: 1%;
+  margin-top: 8px;
+  border-radius: 10px;
+  backdrop-filter: blur(3px);
+}
+
+.stateChat{
+  position: absolute;
+  top: 37.8px;
+  left: 80px;
+  font-size: 13px;  
+}
+
+div.icons{
+  position: fixed;
+  right: 26px;
+  top: 14.1px
+}
+
+.sendBox{
+  position: fixed;
+  bottom: 10px;
+  width: 98%;
+  margin-left: 1%;
+  display: flex;
+  gap: 10px;
+}
+
+input{
+  height: inherit;
+  border-radius: 30px;
+  border: 1.999px solid white;
+  color: white;
+  background: transparent;
+  padding: 14px;
+  width: 80%;
+  outline: none;
+  backdrop-filter: blur(3px); 
+}
+
+button{
+  height: inherit;
+  border-radius: 30px;
+  border: 1.999px solid white;
+  color: white;
+  background: transparent;
+  padding: 14px;
+  outline: none;
+  backdrop-filter: blur(3px);
+}
+
+.msgBox{
+  backdrop-filter: blur(2px);
+  margin-top: 12px;
+  overflow-y: scroll;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  height: 500px;
+  width: 98%;
+  display: none;
+  margin-left: 1%;
+}
+
+.sent{
+  padding: 20px;
+  margin-left: 4px;
+  border-left: 2.5px solid;
+  margin-top: 20px;
+}
+
+.recieved{
+  padding: 20px;
+  float: right;
+  text-align: right;
+  margin-right: 4px;
+  border-right: 2.5px solid;
+  margin-top: 20px;
+}
+
+.chatInterface{
+  display: none;
+}
